@@ -1,11 +1,9 @@
 class PlantsController < ApplicationController
-  before_action :plant, only: [:show, :edit, :update, :destroy]
+  before_action :set_plant, only: [:show, :edit, :update, :destroy]
 
   def index
     @plants = Plant.all
   end
-
-  def show; end
 
   def new
     @plant = Plant.new
@@ -13,14 +11,22 @@ class PlantsController < ApplicationController
 
   def create
     @plant = Plant.new(plant_params)
-    @plant.save
+    if @plant.save
+      redirect_to_plant
+    else
+      render :new
+    end
+  end
+
+  def show
+    @booking = Booking.new
   end
 
   def edit; end
 
   def update
     @plant.update(plant_params)
-    redirect_to plant_path(@plant)
+    redirect_to plant_path
   end
 
   def destroy
