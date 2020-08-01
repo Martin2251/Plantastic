@@ -1,1 +1,17 @@
-show.html.erb
+<%= @plant.name %>
+
+<ul class="list-group">
+  <% @plant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+
+<%= simple_form_for [@plant, @booking] do |f| %>
+  <%= f.input :beginning_date %>
+  <%= f.input :end_date %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Edit', edit_plant_path(@plant) %>
+<%= link_to 'Back', plants_path %>
+<%= link_to 'Leave a review', new_plant_review_path(@plant) %>
