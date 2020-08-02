@@ -1,18 +1,21 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   def index
-    @bookings = Booking.where(user: current_user)
+    @bookings = Booking.all
+  end
+
+  def new
+    @plant = Plant.find(params[:plant_id])
+    @booking = Booking.new
   end
 
   def create
     @plant = Plant.find(params[:plant_id])
     @booking = Booking.new(booking_params)
     @booking.plant = @plant
-    @booking.user = current_user
-    if @booking.save!
-      redirect_to booking_path(@booking)
+    if @booking.save
+      redirect_to @plant
     else
       render :new
     end
@@ -35,7 +38,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:beginning_date, :end_date, :status)
+    params.require(:booking).permit(:beginning_date, :end_date)
   end
 
   def set_booking

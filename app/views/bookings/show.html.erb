@@ -1,24 +1,26 @@
-<%= @booking.plant.name %>
+<div class="container">
+  <%= @booking.plant.name %>
 
-<ul class="list-group">
-  <% @booking.plant.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %>
-      <% if current_user == review.booking.user %>
-        <%= link_to review_path(review), method: :delete do %>
-          <i class="fa fa-trash"></i>
+  <ul class="list-group">
+    <% @booking.plant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %>
+        <% if current_user == review.booking.user %>
+          <%= link_to review_path(review), method: :delete do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+
         <% end %>
 
-      <% end %>
+      </li>
+    <% end %>
+  </ul>
 
-    </li>
-  <% end %>
-</ul>
+  <%= link_to 'Edit', edit_booking_path(@booking) %>
+  <%= link_to 'Back', bookings_path %>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %>
-<%= link_to 'Back', bookings_path %>
-
-<%= simple_form_for [@booking, Review.new] do |f|  %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit %>
-<% end %>
+  <%#= simple_form_for [@booking, Review.new] do |f|  %>
+    <%#= f.input :content %>
+    <%#= f.input :rating %>
+    <%#= f.submit %>
+  <%# end %>
+</div>

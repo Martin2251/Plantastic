@@ -1,3 +1,9 @@
-<% @bookings.each do |booking|%>
-  <%= link_to booking.user, plant_booking_path(@plant_id) %>
-<% end %>
+<div class="container">
+  <h1>All bookings:</h1>
+
+  <% @bookings.each do |booking|%>
+    <%= booking.user.name %>
+  <% end %>
+
+  <%= link_to 'Home', root_path %>
+</div>

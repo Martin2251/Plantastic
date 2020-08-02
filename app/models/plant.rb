@@ -5,9 +5,7 @@ class Plant < ApplicationRecord
   has_many_attached :photos
 
   validates :name, presence: true
-  validates :type, presence: true
   validates :species, presence: true
-  validates :photos, presence: true
   validates :category, presence: true
   validates :price, presence: true
   validates :address, presence: true
