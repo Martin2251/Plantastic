@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
   def new
-    @plant = Plant.find(params[:plant_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
 
   def create
-    @review = Review.new(review_params)
     @booking = Booking.find(params[:booking_id])
+    @review = Review.new(review_params)
     @review.booking = @booking
     if @review.save
       redirect_to booking_path(@booking)
@@ -25,6 +25,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content, :rating)
+    params.require(:review).permit(:comment, :rating)
   end
 end
