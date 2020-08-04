@@ -1,4 +1,4 @@
-<%= simple_form_for(booking) do |f| %>
+<%= simple_form_for booking, url: plant_bookings_path do |f| %>
   <%= f.input :beginning_date %>
   <%= f.input :end_date %>
   <%= f.submit %>
