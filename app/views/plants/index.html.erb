@@ -3,5 +3,6 @@
   <% @plants.each do |plant|%>
     <p><%= link_to plant.name, plant_path(plant) %></p>
   <% end %>
-  <%= link_to 'Home', root_path %>
+  <p><%= link_to 'Home', root_path %></p>
+  <p><%= link_to 'Add a Plant for rent', new_plant_path %></p>
 </div>

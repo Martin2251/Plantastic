@@ -21,13 +21,7 @@
     <% end %>
   </ul>
 
-  <%= link_to 'Edit', edit_booking_path(@booking) %>
-  <%= link_to 'Back', bookings_path %>
-  <%= link_to 'Add a review', new_booking_review_path(@booking) %>
-
-  <%#= simple_form_for [@booking, Review.new] do |f|  %>
-    <%#= f.input :content %>
-    <%#= f.input :rating %>
-    <%#= f.submit %>
-  <%# end %>
+  <p><%= link_to 'Edit', edit_booking_path(@booking) %></p>
+  <p><%= link_to 'Back', bookings_path %></p>
+  <p><%= link_to 'Add a review', new_booking_review_path(@booking) %></p>
 </div>
