@@ -1,27 +1,30 @@
 <div class="container">
-  <h1>Booking:</h1>
+  <div class="row">
+    <div class="col">
+      <h1 class="mt-3">Booking confirmation</h1>
+      <h2>You've booked the following:</h2>
 
-  <p>Booking id: <%= @booking.plant.id %></p>
-  <p>Plant: <%= @booking.plant.name %></p>
-  <p>Booked by <%= @booking.user.name %></p>
-  <p>Booking date is from <%= @booking.beginning_date %> to <%= @booking.end_date %></p>
+      <p>Plant: <%= @booking.plant.name %></p>
+      <p>Booking start date from <%= @booking.beginning_date %> to end date <%= @booking.end_date %></p>
+      <p>Booking reference: <%= @booking.id %></p>
 
-  <h2>Reviews:</h2>
-  <ul class="list-group">
-    <% @booking.plant.reviews.each do |review| %>
-      <li class="list-group-item"><%= review.comment %>
-        <% if current_user == review.booking.user %>
-          <%= link_to review_path(review), method: :delete do %>
-            <i class="fa fa-trash"></i>
-          <% end %>
+      <div class="col-sm-6">
+        <div class="image-container">
 
-        <% end %>
+        </div>
+        <div class="info p-3">
+          <h3><%= @booking.plant.name.capitalize %></h3>
+          <p><strong>£<%= @booking.plant.price %></strong> a day</p>
+          <p>Description: <%= @booking.plant.description.capitalize %></p>
+          <p>Species: <%= @booking.plant.species.capitalize %></p>
+        </div>
+      </div>
 
-      </li>
-    <% end %>
-  </ul>
+      <%= link_to 'Edit booking', edit_booking_path(@booking), class: "btn-green"%>
+      <%= link_to 'Back to all bookings', bookings_path, class: "btn-green" %>
+      <%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn-green" %>
 
-  <%= link_to 'Edit', edit_booking_path(@booking), class: "btn-green"%>
-  <%= link_to 'Back', bookings_path, class: "btn-green" %>
-  <%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn-green" %>
+    </div>
+
+  </div>
 </div>
