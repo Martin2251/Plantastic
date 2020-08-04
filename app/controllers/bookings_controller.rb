@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.plant = @plant
     if @booking.save
-      redirect_to @plant
+      redirect_to bookings_path
     else
       render :new
     end

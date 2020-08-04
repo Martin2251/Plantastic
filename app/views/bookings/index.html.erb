@@ -2,7 +2,8 @@
   <h1>All bookings:</h1>
 
   <% @bookings.each do |booking|%>
-    <%= booking.user.name %>
+    <h3>Booking id: <%= link_to booking.plant.id, booking_path(booking) %></h3>
+    <h4>Plant name: <%= booking.plant.name %></h4>
   <% end %>
 
   <%= link_to 'Home', root_path %>

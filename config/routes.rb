@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :plants do
-    resources :bookings, only:[ :new, :create ]
+    resources :bookings, only: [ :new, :create ]
   end
 
   resources :bookings, except: [ :new, :create ] do
