@@ -21,7 +21,7 @@
     <% end %>
   </ul>
 
-  <p><%= link_to 'Edit', edit_booking_path(@booking) %></p>
-  <p><%= link_to 'Back', bookings_path %></p>
-  <p><%= link_to 'Add a review', new_booking_review_path(@booking) %></p>
+  <%= link_to 'Edit', edit_booking_path(@booking), class: "btn-green"%>
+  <%= link_to 'Back', bookings_path, class: "btn-green" %>
+  <%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn-green" %>
 </div>
