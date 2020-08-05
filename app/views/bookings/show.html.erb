@@ -20,14 +20,11 @@
         </div>
       </div>
 
-      <% if policy(booking).update? %>
+      <% if policy(@booking).update? %>
         <%= link_to 'Edit booking', edit_booking_path(@booking), class: "btn-green" %>
       <% end %>
-      <%= link_to 'Edit booking', edit_booking_path(@booking), class: "btn-green"%>
       <%= link_to 'Back to all bookings', bookings_path, class: "btn-green" %>
       <%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn-green" %>
-
     </div>
-
   </div>
 </div>
