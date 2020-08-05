@@ -2,18 +2,24 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
   end
+
+  def show; end
 
   def new
     @plant = Plant.find(params[:plant_id])
-    @booking = Booking.new
+    @booking = current_user.booking.new
+    authorize @booking
   end
+
+  def edit; end
 
   def create
     @plant = Plant.find(params[:plant_id])
-    @booking = Booking.new(booking_params)
+    @booking = current_user.booking.new(booking_params)
     @booking.user = current_user
+    authorize @booking
     @booking.plant = @plant
     if @booking.save
       redirect_to bookings_path
@@ -21,10 +27,6 @@ class BookingsController < ApplicationController
       render :new
     end
   end
-
-  def show; end
-
-  def edit; end
 
   def update
     @booking.update(booking_params)
@@ -44,5 +46,6 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 end

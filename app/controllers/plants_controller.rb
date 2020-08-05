@@ -1,10 +1,11 @@
 class PlantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home, :index]
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
 
   def home; end
 
   def index
-    @plants = Plant.all
+    @plants = policy_scope(Plant)
   end
 
   def show
@@ -13,11 +14,15 @@ class PlantsController < ApplicationController
   end
 
   def new
-    @plant = Plant.new
+    @plant = current_user.plant.new
+    authorize @plant
   end
 
+  def edit; end
+
   def create
-    @plant = Plant.new(plant_params)
+    @plant = current_user.plant.new(plant_params)
+    authorize @plant
     if @plant.save
       redirect_to plant_path(@plant)
     else
@@ -25,11 +30,14 @@ class PlantsController < ApplicationController
     end
   end
 
-  def edit; end
 
   def update
     @plant.update(plant_params)
-    redirect_to @plant
+    if @plant.save
+      redirect_to plant_path(@plant)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -45,5 +53,6 @@ class PlantsController < ApplicationController
 
   def set_plant
     @plant = Plant.find(params[:id])
+    authorize @plant
   end
 end
