@@ -5,4 +5,8 @@
   <% end %>
   <p><%= link_to 'Home', root_path %></p>
   <p><%= link_to 'Add a Plant for rent', new_plant_path %></p>
+
+  <% if policy(Plant).create? %>
+    <%= link_to 'New Plant', new_plant_path %>
+  <% end %>
 </div>
