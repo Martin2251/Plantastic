@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
 
   def new
     @plant = Plant.find(params[:plant_id])
-    @booking = current_user.booking.new
+    @booking = Booking.new
     authorize @booking
   end
 
@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
   def create
     @plant = Plant.find(params[:plant_id])
-    @booking = current_user.booking.new(booking_params)
+    @booking = Booking.new(booking_params)
     @booking.user = current_user
     authorize @booking
     @booking.plant = @plant
