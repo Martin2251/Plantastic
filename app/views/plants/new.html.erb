@@ -1,5 +1,9 @@
-<div class="container">
-  <h1>Add new plant:</h1>
-  <%= render "form", plant: @plant %>
-  <%= link_to 'Back', plants_path %>
+<div class="container m-3">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h2>Add new plant:</h2>
+      <%= render "form", plant: @plant %>
+      <%= link_to 'Back', plants_path, class: "btn btn-green mt-2"  %>
+    </div>
+  </div>
 </div>

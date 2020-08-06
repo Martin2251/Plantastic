@@ -1,7 +1,9 @@
-<div class="container">
-  <h1>Make a booking:</h1>
-
-  <%= render "form", booking: @booking %>
-
-  <%= link_to 'Back', bookings_path %>
+<div class="container m-3">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h2>Edit booking:</h2>
+      <%= render "form", booking: @booking %>
+      <%= link_to 'Back', plant_path(@plant), class: "btn btn-green mt-2"  %>
+    </div>
+  </div>
 </div>

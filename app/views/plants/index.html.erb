@@ -1,12 +1,19 @@
-<div class="container">
+<div class="container text-center mt-3">
   <h1>All Plants</h1>
-  <% @plants.each do |plant|%>
-    <p><%= link_to plant.name, plant_path(plant) %></p>
-  <% end %>
-  <p><%= link_to 'Home', root_path %></p>
-  <p><%= link_to 'Add a Plant for rent', new_plant_path %></p>
 
-  <% if policy(Plant).create? %>
-    <%= link_to 'New Plant', new_plant_path %>
-  <% end %>
+  <div class="cards d-flex flex-wrap justify-content-around">
+    <% @plants.each do |plant| %>
+      <div class="card mb-5" style="width: 18rem">
+        <%#= cl_image_tag plant.photo.key, class: 'card-img-top cover' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= plant.name %></h5>
+          <h5 class="card-title"><%= plant.category %></h5>
+          <h5 class="card-title">£<%= plant.price %> a day</h5>
+          <%= link_to 'Choose plant', plant_path(plant), class: "btn btn-green" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+

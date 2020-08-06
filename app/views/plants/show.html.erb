@@ -1,20 +1,24 @@
-<div class="container">
+<div class="container text-center">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h1><%= @plant.name.capitalize %></h1>
+      <p>Plant type: <%= @plant.species.capitalize %></p>
+      <p>Category: <%= @plant.category.capitalize %></p>
+      <p>Price: £<%= @plant.price %> per day</p>
+      <p>Location: <%= @plant.address.capitalize %></p>
 
-  <h1><%= @plant.name %></h1>
-  <p><%= @plant.species %></p>
-  <p><%= @plant.category %></p>
-  <p><%= @plant.price %></p>
-  <p><%= @plant.address %></p>
+      <h3>Reviews:</h3>
 
-  <h3>Reviews:</h3>
+      <ul class="list-group m-3">
+        <% @plant.reviews.each do |review| %>
+          <li class="list-group-item">"<%= review.comment %>" from <%= review.booking.user.name %></li>
+        <% end %>
+      </ul>
 
-  <ul class="list-group">
-    <% @plant.reviews.each do |review| %>
-      <li class="list-group-item"><%= review.comment %></li>
-    <% end %>
-  </ul>
+      <p><%= link_to 'Back to all plants', plants_path, class: "btn btn-green" %></p>
+      <p><%= link_to 'Edit', edit_plant_path(@plant), class: "btn btn-green" %></p>
+      <p><%= link_to 'Make a booking', new_plant_booking_path(@plant), class: "btn btn-green" %></p>
+    </div>
+  </div>
 
-  <p><%= link_to 'Back to all plants', plants_path %></p>
-  <p><%= link_to 'Edit', edit_plant_path(@plant) %></p>
-  <p><%= link_to 'Make a booking', new_plant_booking_path(@plant) %></p>
 </div>
