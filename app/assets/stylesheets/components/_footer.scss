@@ -1,10 +1,10 @@
 .footer {
-  background: #F4F4F4;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 80px;
   padding: 0px 50px;
+  background: #f4f4f4;
   color: rgba(0,0,0,0.3);
 }
 .footer-links {
@@ -20,7 +20,4 @@
 }
 .footer-links a:hover {
   opacity: 1;
-}
-.footer .fa-heart {
-  color: #D23333;
 }

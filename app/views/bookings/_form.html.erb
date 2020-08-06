@@ -1,4 +1,17 @@
-<%= simple_form_for booking, url: plant_bookings_path do |f| %>
+<%= simple_form_for booking, url: plant_bookings_path  do |f| %>
+
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% @booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.input :beginning_date %>
   <%= f.input :end_date %>
   <%= f.submit %>
