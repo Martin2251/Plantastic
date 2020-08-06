@@ -1,10 +1,21 @@
-<div class="container">
+<div class="container text-center mt-3">
   <h1>All bookings:</h1>
 
-  <% @bookings.each do |booking|%>
-    <h3>Booking id: <%= link_to booking.plant.id, booking_path(booking) %></h3>
-    <h4>Plant name: <%= booking.plant.name %></h4>
-  <% end %>
+  <div class="cards d-flex flex-wrap justify-content-around mt-3">
+    <% @bookings.each do |booking| %>
+      <div class="card mb-5" style="width: 18rem">
+        <%#= cl_image_tag plant.photo.key, class: 'card-img-top cover' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= booking.plant.name %></h5>
+          <p>Booking ref: <%= link_to booking.id, booking_path(booking) %></p>
+          <%= link_to 'View booking', booking_path(booking), class: "btn btn-green" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-  <%= link_to 'Home', root_path %>
+  <% if policy(Plant).create? %>
+    <p><%= link_to 'Add a Plant for rent', new_plant_path, class: "btn btn-green" %></p>
+  <% end %>
+  <p><%= link_to 'Home', root_path, class: "btn btn-green" %></p>
 </div>
