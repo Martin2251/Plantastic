@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :index]
+  skip_before_action :authenticate_user!, only: [:home, :index, :show]
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
 
   def home; end
