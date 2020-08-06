@@ -15,9 +15,16 @@
         <% end %>
       </ul>
 
-      <p><%= link_to 'Back to all plants', plants_path, class: "btn btn-green" %></p>
-      <p><%= link_to 'Edit', edit_plant_path(@plant), class: "btn btn-green" %></p>
-      <p><%= link_to 'Make a booking', new_plant_booking_path(@plant), class: "btn btn-green" %></p>
+      <div class="links list-inline">
+        <p class="list-inline-item"><%= link_to plants_path do %>
+          <i class="fas fa-angle-double-left"></i>
+          <% end %></p>
+        <p class="list-inline-item"><%= link_to edit_plant_path(@plant) do %>
+          <i class="far fa-edit"></i>
+          <% end %></p>
+        <p><%= link_to 'Make a booking', new_plant_booking_path(@plant), class: "btn btn-green" %></p>
+
+      </div>
     </div>
   </div>
 
