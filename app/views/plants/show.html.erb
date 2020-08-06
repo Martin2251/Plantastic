@@ -1,10 +1,18 @@
 <div class="container">
-
+  <div class="row">
+    <div class="col-3">
+<%= image_tag 'Cactus 2.jpg' %>
+    </div>
+    <div class="col-3 align-self-center">
   <h1><%= @plant.name %></h1>
   <p><%= @plant.species %></p>
   <p><%= @plant.category %></p>
   <p><%= @plant.price %></p>
   <p><%= @plant.address %></p>
+
+  <%= link_to "Check availability", "#", class: "btn btn-flat" %>
+  <%= link_to "Contact owner", "#", class: "btn btn-ghost" %>
+  </div>
 
   <h3>Reviews:</h3>
 
@@ -17,4 +25,10 @@
   <p><%= link_to 'Back to all plants', plants_path %></p>
   <p><%= link_to 'Edit', edit_plant_path(@plant) %></p>
   <p><%= link_to 'Make a booking', new_plant_booking_path(@plant) %></p>
+  </div>
 </div>
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
