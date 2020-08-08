@@ -14,7 +14,7 @@
       <div class="col p-0">
         <div class="border-bottom pb-2" style="text-align: center"> Current </div>
           <div class="cards d-flex flex-wrap justify-content-around mt-3">
-            <% @bookings.each do |booking| %>
+            <% @current_bookings.each do |booking| %>
               <div class="card mb-5" style="width: 18rem">
                 <%#= cl_image_tag plant.photo.key, class: 'card-img-top cover' %>
                 <div class="card-body">
@@ -31,7 +31,7 @@
       <div class="col p-0">
        <div class="border-bottom pb-2" style="text-align: center"> Upcoming </div>
          <div class="cards d-flex flex-wrap justify-content-around mt-3">
-            <% @bookings.each do |booking| %>
+            <% @future_bookings.each do |booking| %>
               <div class="card mb-5" style="width: 18rem">
                 <%#= cl_image_tag plant.photo.key, class: 'card-img-top cover' %>
                 <div class="card-body">
@@ -47,7 +47,7 @@
       <div class="col p-0">
         <div class="border-bottom pb-2" style="text-align: center"> Past </div>
           <div class="cards d-flex flex-wrap justify-content-around mt-3">
-            <% @bookings.each do |booking| %>
+            <% @past_bookings.each do |booking| %>
               <div class="card mb-5" style="width: 18rem">
                 <%#= cl_image_tag plant.photo.key, class: 'card-img-top cover' %>
                   <div class="card-body">
