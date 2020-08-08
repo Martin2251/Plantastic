@@ -2,7 +2,15 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = policy_scope(Booking)
+    if params[:query].present?
+      @bookings = policy_scope(Booking).search_by_plant_name(params[:query])
+
+      sort_bookings_by_date(@bookings)
+    else
+      @bookings ||= policy_scope(Booking)
+
+      sort_bookings_by_date(@bookings)
+    end
   end
 
   def show; end
@@ -47,5 +55,11 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
     authorize @booking
+  end
+
+  def sort_bookings_by_date(bookings)
+    @past_bookings = bookings.where("beginning_date < ?", Date.today)
+    @future_bookings = bookings.where("beginning_date > ?", Date.today)
+    @current_bookings = bookings - @past_bookings - @future_bookings
   end
 end

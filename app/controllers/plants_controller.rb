@@ -5,14 +5,19 @@ class PlantsController < ApplicationController
   def home; end
 
   def index
-    @plants = policy_scope(Plant)
-    @plants = Plant.geocoded
-    @markers = @plants.map do |plant|
-      {
-        lat: plant.latitude,
-        lng: plant.longitude
-      }
+    if params[:query].present?
+      @plants = Plant.search_plant(params[:query])
+    else
+      @plants = policy_scope(Plant)
     end
+
+    # @plants = Plant.geocoded
+    # @markers = @plants.map do |plant|
+    #   {
+    #     lat: plant.latitude,
+    #     lng: plant.longitude
+    #   }
+    # end
   end
 
   def show
@@ -56,7 +61,7 @@ class PlantsController < ApplicationController
   private
 
   def plant_params
-    params.require(:plant).permit(:name, :photo, :species, :category, :price, :address, :description)
+    params.require(:plant).permit(:name, :species, :category, :price, :address, :description, photos: [])
   end
 
   def set_plant
