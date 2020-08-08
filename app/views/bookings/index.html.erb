@@ -1,14 +1,18 @@
 <div class="container big-container" >
-  <div class="row">
-     <div class="col">
-      <div class="search-bar float-right mb-4">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search bookings</button>
-        </form>
+    <div class="row my-4 mx-5">
+      <div class="form-inline ml-auto">
+        <%= form_tag bookings_path, method: :get do %>
+         <%= text_field_tag :query,
+           params[:query],
+           class: "form-control",
+           placeholder: "find a booking"
+         %>
+         <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% end %>
       </div>
     </div>
-  </div>
+
+
   <div class="container main-section border-top border-bottom p-1">
     <div class="row justify-content-center m-1">
       <div class="col p-0">
