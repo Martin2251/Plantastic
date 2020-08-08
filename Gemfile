@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'cloudinary', '~> 1.12.0'
 gem 'devise'
 gem 'pundit'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'

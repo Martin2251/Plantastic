@@ -1,34 +1,31 @@
-<div class="container">
+<div class="container text-center">
   <div class="row">
-    <div class="col-3">
-<%= image_tag 'Cactus 2.jpg' %>
+    <div class="col-6 offset-3">
+      <h1><%= @plant.name.capitalize %></h1>
+      <p>Plant type: <%= @plant.species.capitalize %></p>
+      <p>Category: <%= @plant.category.capitalize %></p>
+      <p>Price: £<%= @plant.price %> per day</p>
+      <p>Location: <%= @plant.address.capitalize %></p>
+
+      <h3>Reviews:</h3>
+
+      <ul class="list-group m-3">
+        <% @plant.reviews.each do |review| %>
+          <li class="list-group-item">"<%= review.comment %>" from <%= review.booking.user.name %></li>
+        <% end %>
+      </ul>
+  <div class="links list-inline">
+        <p class="list-inline-item"><%= link_to plants_path do %>
+          <i class="fas fa-angle-double-left"></i>
+          <% end %></p>
+        <p class="list-inline-item"><%= link_to edit_plant_path(@plant) do %>
+          <i class="far fa-edit"></i>
+          <% end %></p>
+        <p><%= link_to 'Make a booking', new_plant_booking_path(@plant), class: "btn btn-green" %></p>
+
+      </div>
     </div>
-    <div class="col-3 align-self-center">
-  <h1><%= @plant.name %></h1>
-  <p><%= @plant.species %></p>
-  <p><%= @plant.category %></p>
-  <p><%= @plant.price %></p>
-  <p><%= @plant.address %></p>
-
-  <%= link_to "Check availability", "#", class: "btn btn-flat" %>
-  <%= link_to "Contact owner", "#", class: "btn btn-ghost" %>
   </div>
 
-  <h3>Reviews:</h3>
-
-  <ul class="list-group">
-    <% @plant.reviews.each do |review| %>
-      <li class="list-group-item"><%= review.comment %></li>
-    <% end %>
-  </ul>
-
-  <p><%= link_to 'Back to all plants', plants_path %></p>
-  <p><%= link_to 'Edit', edit_plant_path(@plant) %></p>
-  <p><%= link_to 'Make a booking', new_plant_booking_path(@plant) %></p>
-  </div>
 </div>
 
-.avatar {
-  width: 40px;
-  border-radius: 50%;
-}
