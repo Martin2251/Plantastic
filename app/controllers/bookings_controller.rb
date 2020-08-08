@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking)
+    @past_
   end
 
   def show; end

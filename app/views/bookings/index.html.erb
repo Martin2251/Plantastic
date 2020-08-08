@@ -11,8 +11,8 @@
   </div>
   <div class="container main-section border-top border-bottom p-1">
     <div class="row justify-content-center m-1">
-      <div class="col">
-        <div style="text-align: center"> Current </div>
+      <div class="col p-0">
+        <div class="border-bottom pb-2" style="text-align: center"> Current </div>
           <div class="cards d-flex flex-wrap justify-content-around mt-3">
             <% @bookings.each do |booking| %>
               <div class="card mb-5" style="width: 18rem">
@@ -26,10 +26,10 @@
             <% end %>
           </div>
       </div>
- 
-      
-      <div class="col">
-       <div style="text-align: center"> Upcoming </div>
+
+
+      <div class="col p-0">
+       <div class="border-bottom pb-2" style="text-align: center"> Upcoming </div>
          <div class="cards d-flex flex-wrap justify-content-around mt-3">
             <% @bookings.each do |booking| %>
               <div class="card mb-5" style="width: 18rem">
@@ -44,8 +44,8 @@
           </div>
       </div>
 
-      <div class="col">
-        <div style="text-align: center"> Past </div>
+      <div class="col p-0">
+        <div class="border-bottom pb-2" style="text-align: center"> Past </div>
           <div class="cards d-flex flex-wrap justify-content-around mt-3">
             <% @bookings.each do |booking| %>
               <div class="card mb-5" style="width: 18rem">
@@ -59,7 +59,7 @@
               <% end %>
             </div>
       </div>
-    
+
     </div>
   </div>
   <div class="d-flex justify-content-center m-4">
