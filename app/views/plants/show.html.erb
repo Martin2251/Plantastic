@@ -1,11 +1,31 @@
-<div class="container text-center">
-  <div class="row">
-    <div class="col-6 offset-3">
+<div class="container">
+  <div class="row ">
+    <div class="col-md-6 text-center">
       <h1><%= @plant.name.capitalize %></h1>
-      <p>Plant type: <%= @plant.species.capitalize %></p>
-      <p>Category: <%= @plant.category.capitalize %></p>
-      <p>Price: £<%= @plant.price %> per day</p>
-      <p>Location: <%= @plant.address.capitalize %></p>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @plant.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= 'active' if index == 0 %>">
+              <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill %>
+            </div>
+          <% end %>
+        </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+        </div>
+    </div>
+            <div class="col-md-6">
+              <p>Plant type: <%= @plant.species.capitalize %></p>
+              <p>Category: <%= @plant.category.capitalize %></p>
+              <p>Price: £<%= @plant.price %> per day</p>
+              <p>Location: <%= @plant.address.capitalize %></p>
+            </div>
 
       <h3>Reviews:</h3>
 
@@ -24,7 +44,7 @@
         <p><%= link_to 'Make a booking', new_plant_booking_path(@plant), class: "btn btn-green" %></p>
 
       </div>
-    </div>
+
   </div>
 
 </div>
