@@ -1,4 +1,11 @@
 class Plant < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_plant,
+    against: [ :name, :species, :category, :price, :address, :description ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   belongs_to :user
   has_many :bookings
   has_many :reviews, through: :bookings
