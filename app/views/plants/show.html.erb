@@ -3,7 +3,7 @@
     <div class="col-6 offset-3">
       <h1><%= @plant.name.capitalize %></h1>
       <% @plant.photos.each do |photo| %>
-       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+       <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
        <% end %>
       <p>Plant type: <%= @plant.species.capitalize %></p>
       <p>Category: <%= @plant.category.capitalize %></p>
