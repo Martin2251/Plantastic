@@ -12,7 +12,13 @@
     </div>
   <% end %>
 
-  <%= f.input :beginning_date %>
-  <%= f.input :end_date %>
+  <%= f.input :beginning_date%>
+  <%#= f.input :end_date, input_html: { class: "datepicker" } %>
   <%= f.submit %>
 <% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
+

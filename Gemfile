@@ -35,6 +35,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'devise'
 gem 'pundit'
 gem 'geocoder'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'pry-byebug'

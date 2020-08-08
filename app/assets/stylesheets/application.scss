@@ -8,10 +8,13 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
+@import 'bootstrap-datepicker';
+
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
 
 $eggshell: rgba(244, 241, 222, 1);
 $terra-cotta: rgba(224, 122, 95, 1);
