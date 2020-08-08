@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
   pg_search_scope :search_by_plant_name,
     against: [ :beginning_date, :end_date ],
     associated_against: {
-      plant: [ :name, :category]
+      plant: [ :name, :species, :description]
     },
     using: {
       tsearch: { prefix: true }
