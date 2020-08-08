@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Cleaning database..."
 Plant.destroy_all
 User.destroy_all
@@ -6,9 +8,10 @@ puts "Creating plants..."
 
 user = User.create(name: 'lisa', email: 'lisa@me.com', password: '1234561')
 
+file = URI.open('https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=818&q=80')
 20.times do
   plant = Plant.create(
-    user: user,
+    user_id: user.id,
     name: Faker::Name.first_name,
     species: %w[cactus lily rosebush monstera spider-plant].sample,
     category: %w[succulents cacti houseplants].sample,
@@ -18,6 +21,8 @@ user = User.create(name: 'lisa', email: 'lisa@me.com', password: '1234561')
     longitude: Faker::Address.longitude,
     latitude: Faker::Address.latitude
   )
+    # plant.photos.attach(io: file, filename: 'plant.png', content_type: 'image/png')
+    plant.save
   puts "Created #{plant.name}"
 end
 
