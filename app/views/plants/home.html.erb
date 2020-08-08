@@ -2,6 +2,15 @@
   <div class="container text-center">
     <h1>Plantastic</h1>
     <p>A place to rent plants</p>
+
+    <%= form_tag plants_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a plant"
+  %>
+  <%= submit_tag "Search", class: "btn btn-green btn-lg" %>
+<% end %>
     <p><%= link_to 'Click here for all plants', plants_path, class: "btn btn-green btn-lg" %></p>
   </div>
 </div>

@@ -35,6 +35,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'devise'
 gem 'pundit'
 gem 'geocoder'
+gem 'bootstrap-datepicker-rails'
 gem 'pg_search', '~> 2.3.0'
 gem 'faker'
 
