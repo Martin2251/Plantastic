@@ -18,6 +18,7 @@
             <h3 class="card-title"><%= plant.name.capitalize %></h3>
              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
+               <img src="<%= plant.image_url %>" style="height: 200, width: 200" alt="">
                   <% plant.photos.each_with_index do |photo, index| %>
                     <div class="carousel-item <%= 'active' if index == 0 %>">
                        <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill %>
