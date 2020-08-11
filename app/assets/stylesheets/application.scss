@@ -63,10 +63,15 @@ h2 {
 }
 
 a {
-  color: $ocean-green;
+  color: rgba(129, 178, 154, 1);
 
   &:hover {
     color: $dark-slate-gray;
     text-decoration: none;
   }
+}
+
+.edit-back-fa {
+  font-size: 28px;
+  color: rgba(129, 178, 154, 1);
 }

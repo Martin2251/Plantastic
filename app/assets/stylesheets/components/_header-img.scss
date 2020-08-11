@@ -1,0 +1,21 @@
+.header-img {
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  height: 200px;
+  opacity: 0.8px;
+}
+
+.header-img h1 {
+  font-size: 72px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: $eggshell;
+}
+
+.header-img p {
+  font-size: 48px;
+  font-weight: lighter;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
