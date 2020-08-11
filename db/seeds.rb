@@ -18,7 +18,7 @@ user = User.create(name: 'lisa', email: 'lisa@me.com', password: '1234561')
     address: Faker::Address.city,
     description: %w[Beautiful Colourful Pretty].sample,
     longitude: Faker::Address.longitude,
-    latitude: Faker::Address.latitude
+    latitude: Faker::Address.latitude,
   )
     file = URI.open('https://images.unsplash.com/photo-1510520745063-ceaa7314a820?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     plant.photos.attach(io: file, filename: 'plant.png', content_type: 'image/png')
