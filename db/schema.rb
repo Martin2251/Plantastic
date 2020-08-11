@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 2020_08_06_141835) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "species"
-    t.string "image_url"
     t.float "longitude"
     t.float "latitude"
     t.index ["user_id"], name: "index_plants_on_user_id"
