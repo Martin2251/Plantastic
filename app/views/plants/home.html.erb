@@ -4,13 +4,23 @@
     <p>A place to rent plants</p>
 
     <%= form_tag plants_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a plant"
-  %>
-  <%= submit_tag "Search", class: "btn btn-green btn-lg" %>
-<% end %>
+      <div class="input-group mb-3 mr-3">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a plant...",
+          aria: { label: "find", describedby: "basic-addon1" }
+        %>
+        <div class="input-group-prepend">
+          <span class="input-group-text p-0 pr-1 pl-1" id="basic-addon1">
+            <%= button_tag type: "submit", name: "", class: "search-icon" do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+
     <br>
     <p><%= link_to 'Click here for all plants', plants_path, class: "btn btn-green btn-lg" %></p>
   </div>
