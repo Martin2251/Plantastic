@@ -42,7 +42,7 @@
                 <li class="list-group-item">"<%= review.comment %>" from <%= review.booking.user.name %></li>
               <% end %>
             </ul>
-            <p><%= link_to 'Add a review', new_booking_review_path(@booking) %></p>
+            <p><%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn btn-green mb-3" %></p>
           </div>
         </div>
       </div>
