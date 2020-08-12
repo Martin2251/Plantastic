@@ -16,7 +16,7 @@ user = User.create(name: 'lisa', email: 'lisa@me.com', password: '1234561')
     category: %w[succulents cacti houseplants].sample,
     price: rand(3..15),
     address: Faker::Address.city,
-    description: %w[Beautiful Colourful Pretty].sample,
+    description: %w[beautiful colourful pretty].sample,
     longitude: Faker::Address.longitude,
     latitude: Faker::Address.latitude,
   )
