@@ -1,5 +1,5 @@
 <%= simple_form_for [ @plant, @booking ], url: plant_bookings_path do |f| %>
-  <%= f.input :beginning_date%>
-  <%= f.input :end_date %>
-  <%= f.submit %>
+  <%= f.input :beginning_date, as: :string, input_html: { class: "datepicker" }, placeholder: "Enter start date" %>
+  <%= f.input :end_date, as: :string, input_html: { class: "datepicker" }, placeholder: "Enter end date" %>
+  <%= f.submit "Submit", class: "btn btn-green mb-3" %>
 <% end %>
