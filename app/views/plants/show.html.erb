@@ -22,10 +22,10 @@
     <div class="col-md-6">
       <br>
       <h1><%= @plant.name.capitalize %></h1>
-      <p>Plant type: <%= @plant.species.capitalize %></p>
-      <p>Category: <%= @plant.category.capitalize %></p>
-      <p>Price: £<%= @plant.price %> per day</p>
-      <p>Location: <%= @plant.address.capitalize %></p>
+      <p><strong>Plant type: </strong><%= @plant.species.capitalize %></p>
+      <p><strong>Category: </strong><%= @plant.category.capitalize %></p>
+      <p><strong>Price: </strong>£<%= @plant.price %> per day</p>
+      <p><strong>Location: </strong><%= @plant.address.capitalize %></p>
       <div class="links list-inline">
         <p class="list-inline-item"><%= link_to plants_path do %>
           <i class="fas fa-chevron-circle-left edit-back-fa"></i>
@@ -37,9 +37,13 @@
       <p><%= link_to 'Make a booking', new_plant_booking_path(@plant), class: "btn btn-green" %></p>
       <h3>Reviews:</h3>
       <ul class="list-group m-3">
+        <% if @plant.reviews.blank? %>
+        Be the first to leave a review for <%= @plant.name %>
+        <% else %>
         <% @plant.reviews.each do |review| %>
           <li class="list-group-item">"<%= review.comment %>" from <%= review.booking.user.name %></li>
         <% end %>
+      <% end %>
       </ul>
     </div>
   </div>
