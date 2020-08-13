@@ -1,8 +1,9 @@
 require "open-uri"
 
 puts "Cleaning database..."
-Plant.destroy_all
 User.destroy_all
+Plant.destroy_all
+Booking.destroy_all
 
 puts "Creating plants..."
 
@@ -15,7 +16,7 @@ user = User.create(name: 'lisa', email: 'lisa@me.com', password: '1234561')
     species: %w[cactus lily rosebush monstera spider-plant].sample,
     category: %w[succulents cacti houseplants].sample,
     price: rand(3..15),
-    address: Faker::Address.city,
+    address: Faker::Address.full_address,
     description: %w[beautiful colourful pretty].sample,
     longitude: Faker::Address.longitude,
     latitude: Faker::Address.latitude,
