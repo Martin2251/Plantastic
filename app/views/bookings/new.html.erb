@@ -2,8 +2,10 @@
   <div class="row">
     <div class="col-6 offset-3">
       <h2>Make a new booking:</h2>
-      <%= render "form", booking: @booking %>
-      <%= link_to 'Back', plant_path(@plant), class: "btn btn-green mt-2"  %>
+      <%= render "form" %>
+      <%= link_to plant_path(@plant) do %>
+        <i class="fas fa-chevron-circle-left edit-back-fa"></i>
+      <% end %>
     </div>
   </div>
 

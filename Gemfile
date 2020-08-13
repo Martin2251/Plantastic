@@ -38,6 +38,7 @@ gem 'geocoder'
 gem 'bootstrap-datepicker-rails'
 gem 'pg_search', '~> 2.3.0'
 gem 'faker'
+gem 'date_validator', '~> 0.9.0'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -43,7 +43,6 @@ class PlantsController < ApplicationController
     end
   end
 
-
   def update
     @plant.update(plant_params)
     if @plant.save

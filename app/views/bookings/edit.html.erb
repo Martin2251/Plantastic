@@ -2,8 +2,16 @@
   <div class="row">
     <div class="col-6 offset-3">
       <h2>Edit booking:</h2>
-      <%= render "form", booking: @booking %>
-      <%= link_to 'Back', plant_path(@plant), class: "btn btn-green mt-2"  %>
+
+      <%= simple_form_for @booking do |f| %>
+        <%= f.input :beginning_date, as: :string, input_html: { class: "datepicker" }  %>
+        <%= f.input :end_date, as: :string, input_html: { class: "datepicker" }  %>
+        <%= f.submit "Submit", class: "btn btn-green mb-3" %>
+      <% end %>
+
+      <%= link_to booking_path do %>
+        <i class="fas fa-chevron-circle-left edit-back-fa"></i>
+      <% end %>
     </div>
   </div>
 </div>

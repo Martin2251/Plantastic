@@ -12,5 +12,11 @@ class Booking < ApplicationRecord
     }
 
   has_many :reviews, dependent: :destroy
+  validates :beginning_date,
+    date: { after: Proc.new { Date.today }, message: 'must be after today' },
+    on: :create
 
+  validates :end_date,
+    date: { after: Proc.new { Date.today }, message: 'must be after today' },
+    on: :create
 end

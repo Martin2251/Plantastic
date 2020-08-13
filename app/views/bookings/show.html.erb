@@ -7,24 +7,45 @@
       <p>Plant: <%= @booking.plant.name %></p>
       <p>Booking start date from <%= @booking.beginning_date %> to end date <%= @booking.end_date %></p>
       <p>Booking reference: <%= @booking.id %></p>
-
-      <div class="col-sm-6">
-        <div class="image-container">
-
+      <br>
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <div class="image-container">
+            <% @booking.plant.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%= 'active' if index == 0 %>">
+                <%= cl_image_tag photo.key, height: 500, width: 500, crop: :fill, gravity: :center %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="info p-3">
-          <h3><%= @booking.plant.name.capitalize %></h3>
-          <p><strong>£<%= @booking.plant.price %></strong> a day</p>
-          <p>Description: <%= @booking.plant.description.capitalize %></p>
-          <p>Species: <%= @booking.plant.species.capitalize %></p>
+        <div class="col-sm-6">
+          <div class="info p-3">
+            <h3><%= @booking.plant.name.capitalize %></h3>
+            <p>£<%= @booking.plant.price %> a day</p>
+            <p>Description: <%= @booking.plant.description.capitalize %></p>
+            <p>Species: <%= @booking.plant.species.capitalize %></p>
+            <p>Category: <%= @booking.plant.category.capitalize %></p>
+            <p>Location: <%= @booking.plant.address.capitalize %></p>
+            <div class="links list-inline">
+              <p class="list-inline-item"><%= link_to bookings_path do %>
+                <i class="fas fa-chevron-circle-left edit-back-fa"></i>
+                <% end %></p>
+              <% if policy(@booking).update? %>
+              <p class="list-inline-item"><%= link_to edit_booking_path(@booking) do %>
+                <i class="far fa-edit edit-back-fa"></i>
+                <% end %></p>
+              <% end %>
+            </div>
+            <h3>Reviews:</h3>
+            <ul class="list-group m-3">
+              <% @booking.plant.reviews.each do |review| %>
+                <li class="list-group-item">"<%= review.comment %>" from <%= review.booking.user.name %></li>
+              <% end %>
+            </ul>
+            <p><%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn btn-green mb-3" %></p>
+          </div>
         </div>
       </div>
-
-      <% if policy(@booking).update? %>
-        <%= link_to 'Edit booking', edit_booking_path(@booking), class: "btn-green" %>
-      <% end %>
-      <%= link_to 'Back to all bookings', bookings_path, class: "btn-green" %>
-      <%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn-green" %>
     </div>
   </div>
 </div>
