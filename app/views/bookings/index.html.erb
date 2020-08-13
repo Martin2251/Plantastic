@@ -1,70 +1,62 @@
 <div class="container big-container" >
-    <div class="row my-4 mx-5">
-      <div class="form-inline ml-auto">
-        <%= form_tag bookings_path, method: :get do %>
-         <%= text_field_tag :query,
-           params[:query],
-           class: "form-control",
-           placeholder: "find a booking"
-         %>
-         <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
-        <% end %>
-      </div>
+  <div class="row my-4 mx-5">
+    <div class="form-inline ml-auto">
+      <%= form_tag bookings_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "find a booking"
+        %>
+        <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
     </div>
-
+  </div>
 
   <div class="container main-section border-top border-bottom p-1">
     <div class="row justify-content-center m-1">
       <div class="col p-0">
         <div class="border-bottom pb-2" style="text-align: center"> Current </div>
-          <div class="cards d-flex flex-wrap justify-content-around mt-3">
-            <% @current_bookings.each do |booking| %>
-              <div class="card mb-5" style="width: 18rem">
-                <%#= cl_image_tag plant.photo.key, class: 'card-img-top cover' %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= booking.plant.name %></h5>
-                  <p>Booking ref: <%= link_to booking.id, booking_path(booking) %></p>
-                  <%= link_to 'View booking', booking_path(booking), class: "btn btn-green" %>
-                </div>
+          <% @current_bookings.each do |booking| %>
+            <div class="card-product border p-2 my-3 mx-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h5 class="card-title"><%= booking.plant.name %></h5>
+                <%= link_to 'View booking', booking_path(booking), class: "btn btn-green btn-sm p-2 m-3" %>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
       </div>
 
 
       <div class="col p-0">
-       <div class="border-bottom pb-2" style="text-align: center"> Upcoming </div>
-         <div class="cards d-flex flex-wrap justify-content-around mt-3">
-            <% @future_bookings.each do |booking| %>
-              <div class="card mb-5" style="width: 18rem">
-                <%#= cl_image_tag plant.photo.key, class: 'card-img-top cover' %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= booking.plant.name %></h5>
-                  <p>Booking ref: <%= link_to booking.id, booking_path(booking) %></p>
-                  <%= link_to 'View booking', booking_path(booking), class: "btn btn-green" %>
-                </div>
+        <div class="border-bottom pb-2" style="text-align: center"> Upcoming </div>
+          <% @future_bookings.each do |booking| %>
+            <div class="card-product border p-2 my-3 mx-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h5 class="card-title"><%= booking.plant.name %></h5>
+                <%= link_to 'View booking', booking_path(booking), class: "btn btn-green btn-sm p-2 m-3" %>
               </div>
-            <% end %>
-          </div>
-      </div>
+            </div>
+          <% end %>
+        </div>
+
 
       <div class="col p-0">
         <div class="border-bottom pb-2" style="text-align: center"> Past </div>
-          <div class="cards d-flex flex-wrap justify-content-around mt-3">
-            <% @past_bookings.each do |booking| %>
-              <div class="card mb-5" style="width: 18rem">
-                <%#= cl_image_tag plant.photo.key, class: 'card-img-top cover' %>
-                  <div class="card-body">
-                    <h5 class="card-title"><%= booking.plant.name %></h5>
-                    <p>Booking ref: <%= link_to booking.id, booking_path(booking) %></p>
-                    <%= link_to 'View booking', booking_path(booking), class: "btn btn-green" %>
-                  </div>
-                </div>
-              <% end %>
+          <% @past_bookings.each do |booking| %>
+            <div class="card-product border p-2 my-3 mx-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h5 class="card-title"><%= booking.plant.name %></h5>
+                <%= link_to 'View booking', booking_path(booking), class: "btn btn-green btn-sm p-2 m-3" %>
+              </div>
             </div>
+          <% end %>
       </div>
 
     </div>
+
       <div class="d-flex justify-content-center m-4">
         <% if params[:query].present? %>
           <%= link_to "Go back to all bookings", bookings_path, class: "btn btn-white" %>
