@@ -18,7 +18,9 @@
         <div class="border-bottom pb-2" style="text-align: center"> Current </div>
           <% @current_bookings.each do |booking| %>
             <div class="card-product border p-2 my-3 mx-3">
-              <%= cl_image_tag photo.key, height: 600, width: 600, crop: :fill, gravity: :center %>
+              <% booking.plant.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill %>
+              <% end %>
               <div class="card-product-infos">
                 <h5 class="card-title"><%= booking.plant.name %></h5>
                 <%= link_to 'View booking', booking_path(booking), class: "btn btn-green btn-sm p-2 m-3" %>
@@ -32,7 +34,9 @@
         <div class="border-bottom pb-2" style="text-align: center"> Upcoming </div>
           <% @future_bookings.each do |booking| %>
             <div class="card-product border p-2 my-3 mx-3">
-              <%= cl_image_tag photo.key, height: 600, width: 600, crop: :fill, gravity: :center %>
+              <% booking.plant.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill %>
+              <% end %>
               <div class="card-product-infos">
                 <h5 class="card-title"><%= booking.plant.name %></h5>
                 <%= link_to 'View booking', booking_path(booking), class: "btn btn-green btn-sm p-2 m-3" %>
@@ -46,7 +50,9 @@
         <div class="border-bottom pb-2" style="text-align: center"> Past </div>
           <% @past_bookings.each do |booking| %>
             <div class="card-product border p-2 my-3 mx-3">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <% booking.plant.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill %>
+              <% end %>
               <div class="card-product-infos">
                 <h5 class="card-title"><%= booking.plant.name %></h5>
                 <%= link_to 'View booking', booking_path(booking), class: "btn btn-green btn-sm p-2 m-3" %>
