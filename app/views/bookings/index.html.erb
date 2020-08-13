@@ -21,9 +21,12 @@
               <% booking.plant.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill %>
               <% end %>
-              <div class="card-product-infos">
-                <h5 class="card-title"><%= booking.plant.name %></h5>
-                <%= link_to 'View booking', booking_path(booking), class: "btn btn-green btn-sm p-2 m-3" %>
+              <div class="card-product-infos d-flex flex-column align-self-start">
+                <h2 class="card-title"><%= booking.plant.name.capitalize %></h2>
+                <p class="card-description mt-2"> <%= booking.plant.description %></p>
+              </div>
+              <div class="card-button ml-auto mt-auto">
+                <%= link_to 'View booking', booking_path(booking), class: "align-self-end ml-auto btn btn-white btn-sm p-2 m-1" %>
               </div>
             </div>
           <% end %>
@@ -33,13 +36,16 @@
       <div class="col p-0">
         <div class="border-bottom pb-2" style="text-align: center"> Upcoming </div>
           <% @future_bookings.each do |booking| %>
-            <div class="card-product border p-2 my-3 mx-3">
+            <div class="card-product d-flex border p-2 my-3 mx-3">
               <% booking.plant.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill %>
               <% end %>
-              <div class="card-product-infos">
-                <h5 class="card-title"><%= booking.plant.name %></h5>
-                <%= link_to 'View booking', booking_path(booking), class: "btn btn-green btn-sm p-2 m-3" %>
+              <div class="card-product-infos d-flex flex-column align-self-start">
+                <h2 class="card-title"><%= booking.plant.name.capitalize %></h2>
+                <p class="card-description mt-2"> <%= booking.plant.description %></p>
+              </div>
+              <div class="card-button ml-auto mt-auto">
+                <%= link_to 'View booking', booking_path(booking), class: "align-self-end ml-auto btn btn-white btn-sm p-2 m-1" %>
               </div>
             </div>
           <% end %>
@@ -49,13 +55,16 @@
       <div class="col p-0">
         <div class="border-bottom pb-2" style="text-align: center"> Past </div>
           <% @past_bookings.each do |booking| %>
-            <div class="card-product border p-2 my-3 mx-3">
+            <div class="card-product d-flex border p-2 my-3 mx-3">
               <% booking.plant.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill %>
               <% end %>
-              <div class="card-product-infos">
-                <h5 class="card-title"><%= booking.plant.name %></h5>
-                <%= link_to 'View booking', booking_path(booking), class: "btn btn-green btn-sm p-2 m-3" %>
+              <div class="card-product-infos d-flex flex-column align-self-start">
+                <h2 class="card-title"><%= booking.plant.name.capitalize %></h2>
+                <p class="card-description mt-2"> <%= booking.plant.description %></p>
+              </div>
+              <div class="card-button ml-auto mt-auto">
+                <%= link_to 'View booking', booking_path(booking), class: "align-self-end ml-auto btn btn-white btn-sm p-2 m-1" %>
               </div>
             </div>
           <% end %>

@@ -13,3 +13,13 @@
   color: white;
 }
 
+.btn-white {
+  color: $green-sheen;
+  border-color: $green-sheen;
+}
+
+.btn-white:hover {
+  color: white;
+  opacity: 1;
+  background: $green-sheen;
+}
